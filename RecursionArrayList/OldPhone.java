@@ -1,0 +1,187 @@
+/*import java.util.*;
+
+class Main {
+    static void helper(int arr[],int idx,ArrayList<String> ans,String s)
+    {
+        if(idx>=arr.length)
+        {ans.add(s);
+        return;}
+        
+        
+
+        int curr = arr[idx];
+        if(curr == 1)
+        {
+            helper(arr,idx+1,ans,s+'A');
+            helper(arr,idx+1,ans,s+'B');
+            helper(arr,idx+1,ans,s+'C');
+
+        }
+        else if(curr == 2){
+             helper(arr,idx+1,ans,s+'D');
+            helper(arr,idx+1,ans,s+'E');
+            helper(arr,idx+1,ans,s+'F');
+
+        }
+        else if(curr == 3)
+        {
+             helper(arr,idx+1,ans,s+'G');
+            helper(arr,idx+1,ans,s+'H');
+            helper(arr,idx+1,ans,s+'I');
+        }
+        else if(curr == 4)
+        {
+             helper(arr,idx+1,ans,s+'J');
+            helper(arr,idx+1,ans,s+'K');
+            helper(arr,idx+1,ans,s+'L');
+        }
+        else if(curr == 5)
+        {
+             helper(arr,idx+1,ans,s+'M');
+            helper(arr,idx+1,ans,s+'N');
+            helper(arr,idx+1,ans,s+'O');
+        }
+        else if(curr == 6)
+        {
+            helper(arr,idx+1,ans,s+'P');
+            helper(arr,idx+1,ans,s+'Q');
+            helper(arr,idx+1,ans,s+'R');
+            helper(arr,idx+1,ans,s+'S');
+
+        }
+        else if(curr == 7)
+        {
+             helper(arr,idx+1,ans,s+'T');
+            helper(arr,idx+1,ans,s+'U');
+        }
+        else if(curr == 8)
+        {
+             helper(arr,idx+1,ans,s+'V');
+            helper(arr,idx+1,ans,s+'W');
+            helper(arr,idx+1,ans,s+'X');
+        }
+        else if(curr == 9)
+        {
+             helper(arr,idx+1,ans,s+'Y');
+            helper(arr,idx+1,ans,s+'Z');
+
+        }
+        
+        
+
+
+    }
+    static ArrayList <String> OldPhone(int n, int[] keys){
+		//Write your code here
+        ArrayList<String> a = new ArrayList<>();
+        helper(keys,0,a,"");
+        return a
+
+    }
+	
+	public static void main(String[] args) throws Throwable {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] keys = new int[n];
+        for(int i=0;i<n;++i){
+            keys[i] = sc.nextInt();
+        }
+        ArrayList <String> ans=OldPhone(n,keys);
+        for(String i:ans) System.out.print(i+" ");
+    }
+} */
+package RecursionArrayList;
+import java.util.*;
+
+class OldPhone {
+    static void helper(int arr[],int idx,ArrayList<String> ans,String s)
+    {
+        if(idx>=arr.length)
+        {ans.add(s);
+        return;}
+        
+        
+
+        int curr = arr[idx];
+        if(curr == 1)
+        {
+            helper(arr,idx+1,ans,s+'A');
+            helper(arr,idx+1,ans,s+'B');
+            helper(arr,idx+1,ans,s+'C');
+
+        }
+        else if(curr == 2){
+             helper(arr,idx+1,ans,s+'D');
+            helper(arr,idx+1,ans,s+'E');
+            helper(arr,idx+1,ans,s+'F');
+
+        }
+        else if(curr == 3)
+        {
+             helper(arr,idx+1,ans,s+'G');
+            helper(arr,idx+1,ans,s+'H');
+            helper(arr,idx+1,ans,s+'I');
+        }
+        else if(curr == 4)
+        {
+             helper(arr,idx+1,ans,s+'J');
+            helper(arr,idx+1,ans,s+'K');
+            helper(arr,idx+1,ans,s+'L');
+        }
+        else if(curr == 5)
+        {
+             helper(arr,idx+1,ans,s+'M');
+            helper(arr,idx+1,ans,s+'N');
+            helper(arr,idx+1,ans,s+'O');
+        }
+        else if(curr == 6)
+        {
+            helper(arr,idx+1,ans,s+'P');
+            helper(arr,idx+1,ans,s+'Q');
+            helper(arr,idx+1,ans,s+'R');
+            helper(arr,idx+1,ans,s+'S');
+
+        }
+        else if(curr == 7)
+        {
+             helper(arr,idx+1,ans,s+'T');
+            helper(arr,idx+1,ans,s+'U');
+        }
+        else if(curr == 8)
+        {
+             helper(arr,idx+1,ans,s+'V');
+            helper(arr,idx+1,ans,s+'W');
+            helper(arr,idx+1,ans,s+'X');
+        }
+        else if(curr == 9)
+        {
+             helper(arr,idx+1,ans,s+'Y');
+            helper(arr,idx+1,ans,s+'Z');
+
+        }
+        
+        
+
+
+    }
+    static ArrayList <String> OldPhone(int n, int[] keys){
+		//Write your code here
+        ArrayList<String> a = new ArrayList<>();
+        helper(keys,0,a,"");
+        return a;
+
+    }
+	
+	public static void main(String[] args) throws Throwable {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] keys = new int[n];
+        for(int i=0;i<n;++i){
+            keys[i] = sc.nextInt();
+        }
+        ArrayList <String> ans=OldPhone(n,keys);
+        for(String i:ans) System.out.print(i+" ");
+    }
+}
+
+
