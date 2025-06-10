@@ -25,7 +25,7 @@ b
 bc
 c */
 
-package RecursuionArrayList;
+package RecursionArrayList;
 import java.io.*;
 import java.util.*;
 
