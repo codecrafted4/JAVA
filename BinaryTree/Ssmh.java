@@ -53,14 +53,13 @@ Trees */
 
 
 
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.io.*;
-import java.util.*;
 
 
 
-class Main {
+class Ssmh {
     static Node buildTree(String str) {
         if (str.length() == 0 || str.charAt(0) == 'N') {
             return null;

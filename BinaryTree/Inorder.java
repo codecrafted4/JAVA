@@ -58,8 +58,6 @@ Amazon
 Adobe
 Snapdea */
 
-import java.util.LinkedList; 
-import java.util.Queue; 
 import java.io.*;
 import java.util.*;
 
@@ -75,7 +73,7 @@ class Node{
 }
 
 
-class Main {
+class Inorder {
     static Node buildTree(String str){
        // System.out.print(str);
         if(str.length()==0 || str.charAt(0)=='N'){
