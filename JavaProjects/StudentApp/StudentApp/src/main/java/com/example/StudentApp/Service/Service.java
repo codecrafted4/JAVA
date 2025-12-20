@@ -18,8 +18,8 @@ public class Service {
         }
         return student;
     }
-    public String addStudent(Student student)
-    {
+    public String addStudent(Student student) {
+
         return studentRepository.addStudent(student);
     }
     public ArrayList<Student> getStudentList()
