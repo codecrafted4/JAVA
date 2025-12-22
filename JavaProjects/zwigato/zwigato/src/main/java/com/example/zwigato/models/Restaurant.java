@@ -34,7 +34,7 @@ public class Restaurant {
     @Column
     Date registeredAt;
 
-    @ManyToMany(mappedBy = "restaurants")
+    @ManyToMany(mappedBy = "restaurants",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<MenuItems> menuItems;
 

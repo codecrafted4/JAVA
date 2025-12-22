@@ -22,12 +22,16 @@ public class MenuItems {
     @Column
     private int price;
 
+    @Column(nullable = false)
+    private String name;
+
+
     @Enumerated(EnumType.STRING)
     @Column
     private FoodCategory category;
 
-    @Column
-    private boolean isVeg;
+    @Column(columnDefinition = "TINYINT(1) DEFAULT 0")
+    private boolean vegOrNon;
 
     @OneToMany(mappedBy = "menuItem")
     @JsonIgnore
