@@ -1,5 +1,6 @@
 package com.example.zwigato.controller;
 
+import com.example.zwigato.annotation.PrintHello;
 import com.example.zwigato.dto.request.CustomerRequest;
 import com.example.zwigato.dto.response.CustomerResponse;
 import com.example.zwigato.models.Customer;
@@ -22,7 +23,9 @@ public class CustomerController {
     Logger logger = LoggerFactory.getLogger(CustomerController.class);
     private final CustomerService customerService;
     @PostMapping
+    @PrintHello
     public ResponseEntity addCustomer(@RequestBody CustomerRequest customerRequest){
+
         logger.info("customer adding started");
         CustomerResponse response  = customerService.addCustomer(customerRequest);
         logger.info("customer added");
