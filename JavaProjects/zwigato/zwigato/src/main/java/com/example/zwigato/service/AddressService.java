@@ -12,6 +12,8 @@ import com.example.zwigato.utility.transformers.CustomerTransformer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,5 +44,37 @@ public class AddressService {
         AddressResponse response = AddressTransformer.addressToAddressResponse(lastSavedAddress);
         response.setCustomer(CustomerTransformer.customerToCustomerResponse(savedCustomer));
         return response;
+    }
+
+    public String deleteAddress(int customerId, int addressId) {
+        Optional<Customer> optionalCustomer = customerRepository.findById((customerId));
+        if(optionalCustomer.isEmpty()) {
+            throw new CustomerNotFoundException("invalid customer id");
+        }
+        Customer customer= optionalCustomer.get();
+        for(Address address: customer.getAddress()){
+            if(address.getId()==addressId){
+                customer.getAddress().remove(address);
+                addressRepository.delete(address);
+            }
+        }
+
+        return "address deleted";
+
+
+    }
+
+    public List<Address> getAllAddress(int customerId) {
+        Optional<Customer> optionalCustomer=customerRepository.findById(customerId);
+        if(optionalCustomer.isEmpty()){
+            throw new CustomerNotFoundException("invalid customer");
+        }
+        Customer customer = optionalCustomer.get();
+        List<Address>  addresses = new ArrayList<>();
+        for(Address address : customer.getAddress()){
+            addresses.add(address);
+        }
+        return addresses;
+
     }
 }

@@ -21,4 +21,24 @@ public class AddressController {
             return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
+    @DeleteMapping(value ="/customer/{c}/address/{a}")
+    public ResponseEntity deleteAddress(@PathVariable("c") int customerId, @PathVariable("a") int addressId)
+    {
+        try{
+            return new ResponseEntity(addressService.deleteAddress(customerId,addressId),HttpStatus.FOUND);
+        }catch(Exception e)
+        {
+            return new  ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/customer/{id}/addresses")
+    public ResponseEntity getAllAddress(@PathVariable("id") int customerId){
+        try{
+            return new ResponseEntity(addressService.getAllAddress(customerId),HttpStatus.FOUND);
+        }
+        catch (Exception e){
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
 }

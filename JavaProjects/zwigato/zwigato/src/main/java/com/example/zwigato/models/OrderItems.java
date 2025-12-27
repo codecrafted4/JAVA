@@ -11,16 +11,15 @@ import lombok.*;
 @Builder
 public class OrderItems {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int id;
+    private String id;
 
     @Column
     private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    OrderEntity order;
+    OrderEntity orderEntity;
 
     @ManyToOne
     @JoinColumn(name = "menu-items_id")

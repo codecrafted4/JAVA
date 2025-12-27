@@ -1,8 +1,8 @@
 package com.example.zwigato.utility.enums;
 
 public enum OrderStatus {
-        DELIVERED,
+        PLACED,
         CANCELLED,
         ONT_THE_WAY,
-        REFUNDED
+        DELIVERED,
 }

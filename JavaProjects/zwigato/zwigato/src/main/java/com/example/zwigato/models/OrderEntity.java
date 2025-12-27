@@ -23,7 +23,7 @@ public class OrderEntity {
     private String id;
 
     @Column
-    private double totalCost;
+    private int totalCost;
 
     @Column
     @CreationTimestamp
@@ -38,7 +38,7 @@ public class OrderEntity {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orderEntity",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<OrderItems> orderItems;
 

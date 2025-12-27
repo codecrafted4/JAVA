@@ -33,7 +33,7 @@ public class MenuItems {
     @Column(columnDefinition = "TINYINT(1) DEFAULT 0")
     private boolean vegOrNon;
 
-    @OneToMany(mappedBy = "menuItem")
+    @OneToMany(mappedBy = "menuItem",cascade = CascadeType.ALL)
     @JsonIgnore
     List<OrderItems> orders;
 
