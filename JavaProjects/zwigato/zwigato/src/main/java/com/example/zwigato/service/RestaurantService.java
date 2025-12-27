@@ -34,8 +34,6 @@ public class RestaurantService {
         Restaurant savedRestaurant = restaurantRepository.save(restaurant);
 
         return restaurantToRestaurantResponse(savedRestaurant);
-
-
     }
 
     public String changeStatus(int id) {
@@ -68,6 +66,5 @@ public class RestaurantService {
             menuItemsResponseList.add(MenuItemsTransformer.menuItemsToMenuResponse(menuItem));
         }
         return menuItemsResponseList;
-
     }
 }
