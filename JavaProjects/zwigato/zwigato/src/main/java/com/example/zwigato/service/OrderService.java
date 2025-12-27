@@ -10,6 +10,9 @@ import com.example.zwigato.repository.OrderEntityRepository;
 import com.example.zwigato.repository.RestaurantRepository;
 import com.example.zwigato.utility.enums.OrderStatus;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +27,8 @@ public class OrderService {
     private final MenuItemsRepository menuItemsRepository;
     private final RestaurantRepository restaurantRepository;
     private final OrderEntityRepository orderEntityRepository;
+    @Autowired
+    private JavaMailSender javaMailSender;
     public OrderResponse placeOrder(int customer_id, List<OrderItemsRequest> orderItemsRequest) {
         Optional<Customer> OptionalCustomer = customerRepository.findById(customer_id);
         if (OptionalCustomer.isEmpty()) {
@@ -56,6 +61,8 @@ public class OrderService {
 
         OrderEntity savedOrder = orderEntityRepository.save(order);
 
+        sendEmail(savedOrder);
+
         return OrderResponse.builder()
                 .status(savedOrder.getStatus())
                 .createdAt(savedOrder.getCreatedAt())
@@ -63,5 +70,17 @@ public class OrderService {
                 .name(names)
                 .customerName(customer.getName())
                 .build();
+    }
+    public void sendEmail(OrderEntity savedOrder){
+        String txt = "Hi "+savedOrder.getCustomer().getName()+"/n/nYourOrder wtih orderId: "+savedOrder.getId()+
+                "has been place successfully";
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("ziggato4u@gmail.com");
+        message.setBcc("utkarshmishra1711198@gmail.com");
+        message.setTo(savedOrder.getCustomer().getMail());
+        message.setSubject("Order Placed : Successfully");
+        message.setText(txt);
+
+        javaMailSender.send(message);
     }
 }

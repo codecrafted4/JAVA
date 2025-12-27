@@ -30,6 +30,9 @@ public class Customer {
     @Column
     private Gender gender;
 
+    @Column
+    private String mail;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     private List<Address> address;

@@ -18,4 +18,6 @@ public class CustomerRequest {
 
 
     private Gender gender;
+
+    private  String mail;
 }

@@ -22,7 +22,7 @@ public class CustomerService {
     private final CustomerRepository customerRepository;
     public CustomerResponse addCustomer(CustomerRequest customerRequest) {
         Customer customer = customerRequestToCustomer(customerRequest);
-
+        customer.setMail(customerRequest.getMail());
         Customer savedCustomer = customerRepository.save(customer);
 
         return customerToCustomerResponse(savedCustomer);
